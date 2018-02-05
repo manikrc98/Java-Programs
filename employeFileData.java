@@ -64,7 +64,7 @@ class employeFileData
                             output.write(contentInBytes);
                             output.close();
                             break;
-                        case 2: //To write employee details from file
+                        case 2: //To read employee details from file
                             int i;
                             System.out.println("Please enter the filename to read employee details from: ");
                             inputfileName = br.readLine();
