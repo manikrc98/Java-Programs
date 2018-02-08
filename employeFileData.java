@@ -117,8 +117,8 @@ class employeFileData
                             out.flush();
                             out.close();
                             break;
-                        case 2: //To write employee details from object
-                            System.out.println("Please Enter the name of the object to save the employee details into: ");
+                        case 2: //To read employee details from object
+                            System.out.println("Please Enter the name of the object to read the employee details from: ");
                             String objecOtName = br.readLine();
                             try{
                                 FileInputStream fin = new FileInputStream(objecOtName + ".ser");
