@@ -11,19 +11,23 @@ public class registrationForm extends Frame implements WindowListener{
     public static void main(String[] args) {
             registrationForm rf = new registrationForm();
             // LABELS
-            Label l1,l2,l3,l4,l5,l6,l7,l8;
+            
+            Label l0,l1,l2,l3,l4,l5,l6;
+            l0 = new Label("Registration Form");
+            l0.setBounds(150,40, 150,30);
             l1 = new Label("First Name: ");
             l1.setBounds(50,100, 100,30);  
             l2 = new Label("Last Name: ");
             l2.setBounds(50,130, 100,30);
             l3 = new Label("Hobbies: ");
-            l3.setBounds(50,160, 80,30);
+            l3.setBounds(50,170, 80,30);
             l4 = new Label("Gender: ");
-            l4.setBounds(50,220, 80,30);
+            l4.setBounds(50,230, 80,30);
             l5 = new Label("Language: ");
             l5.setBounds(50,290, 80,30);
             l6 = new Label("Address: ");
             l6.setBounds(50,350, 80,30);
+            rf.add(l0);
             rf.add(l1);
             rf.add(l2);
             rf.add(l3);
