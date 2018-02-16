@@ -14,7 +14,8 @@ public class bookRegisteration extends Frame implements WindowListener{
             
             Label l0,l1,l2,l3,l4,l5,l6;
             l0 = new Label("Registration Form");
-            l0.setBounds(150,40, 150,30);
+            l0.setBounds(150,60, 150,30);
+            l0.setForeground(Color.white);
             l1 = new Label("First Name: ");
             l1.setBounds(50,100, 100,30);  
             l2 = new Label("Last Name: ");
@@ -27,6 +28,50 @@ public class bookRegisteration extends Frame implements WindowListener{
             l5.setBounds(50,290, 80,30);
             l6 = new Label("Address: ");
             l6.setBounds(50,350, 80,30);
+            
+            Font myFont = new Font("Calibiri",Font.BOLD,20);
+            l0.setFont(myFont);
+            l1.setForeground(Color.white);
+            l2.setForeground(Color.white);
+            l3.setForeground(Color.white);
+            l4.setForeground(Color.white);
+            l5.setForeground(Color.white);
+            l6.setForeground(Color.white);
+
+            // MENU
+            MenuBar mb = new MenuBar();  
+            
+            Menu menu = new Menu("Edit");  
+            Menu submenu = new Menu("Clear");    
+            MenuItem i2 = new MenuItem("Change");  
+            MenuItem i3 = new MenuItem("Exit");  
+            MenuItem i4 = new MenuItem("Single");  
+            MenuItem i5 = new MenuItem("All");  
+            
+            Menu menu2 = new Menu("Help");  
+
+            menu.add(i2);  
+            menu.add(i3);  
+            submenu.add(i4);  
+            submenu.add(i5);  
+            menu.add(submenu);  
+            mb.add(menu); 
+            mb.add(menu2);
+            rf.setMenuBar(mb);  
+
+
+            //Popup Menu
+            PopupMenu popupmenu = new PopupMenu("Edit");   
+            MenuItem cut = new MenuItem("Cut");  
+            cut.setActionCommand("Cut");  
+            MenuItem copy = new MenuItem("Copy");  
+            copy.setActionCommand("Copy");  
+            MenuItem paste = new MenuItem("Paste");  
+            paste.setActionCommand("Paste");      
+            popupmenu.add(cut);  
+            popupmenu.add(copy);  
+            popupmenu.add(paste);        
+            
             rf.add(l0);
             rf.add(l1);
             rf.add(l2);
@@ -34,7 +79,12 @@ public class bookRegisteration extends Frame implements WindowListener{
             rf.add(l4);
             rf.add(l5);
             rf.add(l6);
-
+            rf.addMouseListener(new MouseAdapter() {  
+                public void mouseClicked(MouseEvent e) {              
+                    popupmenu.show(rf , e.getX(), e.getY());  
+                }                 
+             });  
+             rf.add(popupmenu);
             // TEXT FIELD
             TextField t1,t2;  
             t1=new TextField();  
@@ -44,10 +94,18 @@ public class bookRegisteration extends Frame implements WindowListener{
             rf.add(t1); rf.add(t2);  
             
             // CHECKBOXES
+            Font chkFont = new Font("Courier", Font.ITALIC,12);
+            
             Checkbox checkbox1 = new Checkbox("Sports");  
             checkbox1.setBounds(140,160,150,50);  
+            checkbox1.setFont(chkFont);
+            checkbox1.setForeground(Color.lightGray);
+            
             Checkbox checkbox2 = new Checkbox("Designing", true);  
-            checkbox2.setBounds(140,190,150,50);  
+            checkbox2.setBounds(140,190,150,50);
+            checkbox2.setFont(chkFont);
+            checkbox2.setForeground(Color.lightGray);
+            
             rf.add(checkbox1);  
             rf.add(checkbox2);  
 
@@ -75,15 +133,21 @@ public class bookRegisteration extends Frame implements WindowListener{
             
             // TextAREA
             TextArea area=new TextArea();  
-            area.setBounds(140,350, 150,50);  
+            area.setBounds(140,350, 220,100);  
             rf.add(area);  
 
             // BUTTON
             Button b=new Button("Submit");  
-            b.setBounds(150,450,80,30);  
+            b.setBounds(150,500,110,30);
+            b.setFont(myFont);  
+            b.setBackground(Color.WHITE);
+            b.setForeground(new Color(53, 129, 184));
             rf.add(b);  
 
-            
+            // ICON
+            Image icon = Toolkit.getDefaultToolkit().getImage("/home/mchugh/Downloads/Java-Programs/icon.png");  
+            rf.setIconImage(icon);  
+
             rf.setBackground(new Color(53, 129, 184));
         }
         public void windowActivated(WindowEvent arg0) {  
