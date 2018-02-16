@@ -13,12 +13,12 @@ class nextPage extends JFrame   //Second page -> (JFrame - swing component, base
     }
 }
 
-class Login extends JFrame implements ActionListener,MouseListener//First Page
+class Login extends JFrame implements ActionListener,MouseListener,MouseMotionListener//First Page
 {
     Button SUBMIT;
     Panel panel;
-    Label l1,l2;
-    final TextField text1,text2,text3;
+    Label l1,l2,l3;
+    final TextField text1,text2;
     Login()
     {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -39,12 +39,13 @@ class Login extends JFrame implements ActionListener,MouseListener//First Page
         panel.add(l2);
         panel.add(text2);
 
-        text3 = new TextField(20);  //variable for mouselistener class
-        panel.add(text3);
+        l3 = new Label();  //variable for mouselistener class
+        panel.add(l3);
         
         panel.add(SUBMIT);
         add(panel,BorderLayout.CENTER);
         text2.addMouseListener(this);
+        text1.addMouseMotionListener(this);
         
         SUBMIT.addActionListener(this);
         setTitle("LOGIN FORM");
@@ -71,27 +72,35 @@ class Login extends JFrame implements ActionListener,MouseListener//First Page
 
     public void mouseClicked(MouseEvent e)   //overriding abstract methods of mouselistener 
     {
-        text3.setText("Mouse Clicked");
+        l3.setText("Mouse Clicked");
     }
 
     public void mouseEntered(MouseEvent e) //overriding abstract methods of mouselistener
     {
-        text3.setText("Mouse Entered");
+        l3.setText("Mouse Entered");
     }
 
     public void mouseExited(MouseEvent e) //overriding abstract methods of mouselistener
     {
-        text3.setText("Mouse Exited");
+        l3.setText("Mouse Exited");
     }
 
     public void mousePressed(MouseEvent e) //overriding abstract methods of mouselistener
     {
-        text3.setText("Mouse Pressed");
+        l3.setText("Mouse Pressed");
     }
 
     public void mouseReleased(MouseEvent e) //overriding abstract methods of mouselistener
     {
-        text3.setText("Mouse Released");
+        l3.setText("Mouse Released");
+    }
+    public void mouseDragged(MouseEvent e)
+    {
+        l3.setText("Mouse Dragged");
+    }
+    public void mouseMoved(MouseEvent e)
+    {
+        l3.setText("Mouse Moved");
     }
 }
 public class loginDemo{
